@@ -23,12 +23,16 @@ sudo pacman -S --noconfirm git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 EDITOR=true makepkg -si --noconfirm --needed
-cd ~
+## cp ./pacman.conf /etc/
 
 ## Essential Packages
 yay -S --noconfirm zen-browser-bin
 yay -S --noconfirm vesktop-bin
+yay -S --noconfirm fastfetch
 
 ## IDEs
 yay -S --noconfirm zed
 yay -S --noconfirm code
+yay -S --noconfirm nvim
+
+echo "fastfetch" >> .bashrc
