@@ -9,7 +9,7 @@ if [[ $? -ne 0 ]]; then
 fi
 sudo pacman -S --noconfirm networkmanager
 sudo systemctl enable --now NetworkManager
-## check if this is active using systemctl is-active --quiet NetworkManager
+systemctl is-active NetworkManager
 
 # Audio
 sudo pacman -S --noconfirm pipewire
@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm pipewire-pulse
 sudo pacman -S --noconfirm pipewire-audio
 
 ## Package Manager Set-up
-cp ./pacman.conf /etc/
+cp ./pacman.conf /etc/pacman.conf
 sudo pacman -S --noconfirm man-db
 sudo pacman -S --noconfirm git
 cd ~
