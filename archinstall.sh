@@ -9,14 +9,17 @@ if [[ $? -ne 0 ]]; then
 fi
 sudo pacman -S --noconfirm networkmanager
 sudo systemctl enable --now NetworkManager
-systemctl is-active NetworkManager
+if !systemctl is-active NetworkManager; then 
+    echo "ERROR: NetworkManager was not started"
+fi
 
 # Audio
 sudo pacman -S --noconfirm pipewire
 sudo pacman -S --noconfirm wireplumber
 sudo pacman -S --noconfirm pavucontrol
-systemctl --user status pipewire	        # Ensure active
-systemctl --user status pipewire.socket     # Ensure active
+if [[ !systemctl is-active pipewire || !systemctl is-active pipewire.socket ]]; then
+  echo "ERROR: pipewire service is not active"
+fi
 sudo pacman -S --noconfirm pipewire-alsa
 sudo pacman -S --noconfirm pipewire-pulse
 sudo pacman -S --noconfirm pipewire-audio

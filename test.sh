@@ -29,12 +29,15 @@
 
 #!/bin/bash
 
-iwctl <<EOF
-station wlan0 scan
-EOF
+#iwctl <<EOF
+#station wlan0 scan
+#EOF
 
-sleep 3
+#sleep 3
+#iwctl <<EOF > temp.txt
+#station wlan0 get-networks
+#EOF
 
-iwctl <<EOF > temp.txt
-station wlan0 get-networks
-EOF
+if echo "balls"; then 
+    echo yes!
+fi
